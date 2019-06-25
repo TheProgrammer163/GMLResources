@@ -1,0 +1,15 @@
+///@arg x
+///@arg y
+///@arg objects
+
+var _x = argument0;
+var _y = argument1;
+var _collision_objects = argument2;
+
+for(var i = 0; i < array_length_1d(_collision_objects); i++) {
+	if place_meeting(_x, _y, _collision_objects[i]) {
+		return true;
+	}
+}
+
+return false;
