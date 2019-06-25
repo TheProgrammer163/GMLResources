@@ -13,3 +13,5 @@ for(var i = 0; i < array_length_1d(_collision_objects); i++) {
 }
 
 return false;
+
+
