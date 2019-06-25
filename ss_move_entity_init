@@ -1,0 +1,30 @@
+///@arg obj*
+
+/*
+Example
+In the player create event:
+
+ss_move_entity_init(obj_solid, obj_player_barrier);
+
+The player will now collide with obj_solid and obj_player_barrier.
+If you want the player to only collide with obj_solid, you can do:
+
+ss_move_entity_init(obj_solid);
+
+You can add as many objects as you want, unless GameMaker has an argument limit
+That I am unaware of. This allows players to be restricted to a certain area while
+enemies can still pass through, which can be useful in a wave based game for example.
+Maybe ghost enemies can pass through wood blocks and closed wooden doors but not walls.
+It's a lot more flexible.
+
+Noone as the only argument will work as well if you need an object to collide with
+nothing at all.
+*/
+
+for(var i = argument_count-1; i >= 0; --i) {
+	ss_entity_barriers[i] = argument[i];
+}
+
+
+
+
