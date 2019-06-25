@@ -1,0 +1,26 @@
+///@arg movement
+///@arg ojects
+
+var _distance_travelled = 0;
+var _distance_to_travel = argument0;
+var _collision_objects = argument1;
+
+// if we're not trying to move, ignore everything else
+if (sign(_distance_to_travel) == 0) {
+	exit;
+}
+// if there's no collisions at all, ignore everything
+if (!ss_place_meeting_many(x, y+_distance_to_travel, _collision_objects)) {
+	y+=_distance_to_travel;
+	exit;
+}
+
+while(_distance_travelled < abs(_distance_to_travel)) {
+	if ss_place_meeting_many(x, y+sign(_distance_to_travel), _collision_objects) {
+		yvel = 0;
+		break;
+	} else {
+		y = y + sign(_distance_to_travel);
+		_distance_travelled += 1;
+	}
+}
