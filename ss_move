@@ -1,0 +1,7 @@
+///@arg move_x
+///@arg move_y
+
+ss_move_x(argument0, ss_entity_barriers);
+ss_move_y(argument1, ss_entity_barriers);
+
+
