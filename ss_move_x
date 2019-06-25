@@ -1,0 +1,32 @@
+///@arg movement
+///@arg objects
+
+var _distance_travelled = 0;
+var _distance_to_travel = argument0;
+var _collision_objects = argument1;
+
+// if we're not trying to move, ignore everything else
+if (sign(_distance_to_travel) == 0) {
+	exit;
+}
+// if there's no collisions at all, ignore everything
+if (!ss_place_meeting_many(x+_distance_to_travel, y, _collision_objects)) {
+	x+=_distance_to_travel;
+	exit;
+}
+
+while(_distance_travelled < abs(_distance_to_travel)) {
+	// if there is a collision, set velocity to 0, and quit the script.
+	if ss_place_meeting_many(x+sign(_distance_to_travel), y, _collision_objects) {
+		// Could be vspeed, xspeed, hspd. Movement on the x axis needs to be set to 0
+		// Because there's a wall. Don't keep moving towards the wall
+		xvel = 0;
+		break;
+	// otherwise keep getting closer to the wall
+	} else {
+		x = x + sign(_distance_to_travel);
+		_distance_travelled = _distance_travelled + 1;
+	}
+	
+}
+
