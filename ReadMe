@@ -1,0 +1,14 @@
+
+Use ss_move_entity_init() in each player/entity's create event and pass in as many object as you want.
+
+ss_move_entity_init(obj_solid, obj_player_barrier, obj_concrete);
+
+If you want an object to collide with only a certain type of wall, maybe the enemies should be
+able to pass through obj_player_barrier, you can do:
+
+ss_move_entity(obj_solid, obj_concrete);
+
+This entity won't collide with player barriers, allowing for more flexible level design.
+
+You'll need to replace xvel and yvel with whatever movement variables you are using,
+like hspeed or vspeed.
